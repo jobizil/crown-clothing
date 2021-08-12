@@ -34,6 +34,7 @@ class App extends Component {
               ...snapShot.data(),
             },
           })
+          console.log(this.state)
         })
       } else {
         // Set user to null if logged out

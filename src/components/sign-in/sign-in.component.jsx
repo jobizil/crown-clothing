@@ -29,13 +29,14 @@ class SignIn extends Component {
         <h2> I already have an Account!</h2>
         <span>Sign in with your email and password</span>
 
-        <form onSubmit={this.handleSubmit} autoComplete='off'>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             name='email'
             type='email'
             value={this.state.email}
             handleChange={this.handleChange}
             label='Email'
+            autoComplete='off'
             required
           />
           <FormInput
@@ -44,6 +45,7 @@ class SignIn extends Component {
             value={this.state.password}
             handleChange={this.handleChange}
             label='Password'
+            autoComplete='off'
             required
           />
           <div className='buttons'>
