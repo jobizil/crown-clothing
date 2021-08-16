@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import './App.css'
@@ -8,7 +8,7 @@ import Header from './components/header/header.component'
 // Pages
 import HomePage from './pages/homepage/home-page'
 import ShopPage from './pages/shop/shop-page'
-import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up-page'
+import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up-page'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
@@ -49,7 +49,17 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInSignUpPage} />
+          <Route
+            exact
+            path='/signin'
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to='/' />
+              ) : (
+                <SignInAndSignUpPage />
+              )
+            }
+          />
         </Switch>
       </div>
     )
@@ -61,7 +71,10 @@ class App extends Component {
 https://react-redux.js.org/api/connect#mapdispatchtoprops-object--dispatch-ownprops--object 
 * null is passed into connect because the state is not actually being used by App Component.
 */
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+})
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
 })
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
