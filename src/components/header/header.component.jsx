@@ -3,7 +3,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg'
 import './header.styles.scss'
 import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux'
-const Header = ({ currentUser }) => {
+import CartIcon from '../cart-icon/cart-icon.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
+const Header = ({ currentUser, hidden }) => {
   return (
     <div className='header'>
       <Link className='logo-container' to='/'>
@@ -26,7 +28,10 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {/* If hidden is true, render nothing else rnder dropdown */}
+      {hidden ? null : <CartDropdown />}
     </div>
   )
 }
@@ -38,8 +43,8 @@ const Header = ({ currentUser }) => {
  https://react-redux.js.org/api/connect#mapstatetoprops-state-ownprops--object
  */
 
-const mapStateToProps = state => {
-  return { currentUser: state.user.currentUser }
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => {
+  return { currentUser, hidden }
 }
 
 export default connect(mapStateToProps)(Header)
