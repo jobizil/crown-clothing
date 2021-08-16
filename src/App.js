@@ -32,10 +32,9 @@ class App extends Component {
             ...snapShot.data(),
           })
         })
-      } else {
-        setCurrentUser(userAuth)
-        // Set user to null if logged out}
       }
+      // Set user to null if logged out}
+      setCurrentUser(userAuth)
     })
   }
 
