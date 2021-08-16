@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/crown.svg'
 import './header.styles.scss'
 import { auth } from '../../firebase/firebase.utils'
+import { connect } from 'react-redux'
 const Header = ({ currentUser }) => {
   return (
     <div className='header'>
@@ -30,4 +31,15 @@ const Header = ({ currentUser }) => {
   )
 }
 
-export default Header
+/*
+ * state=> Top level (Root Reducer)
+ * .user => user Value within the root Reducer
+ * .currentUser=> user Reducer 
+ https://react-redux.js.org/api/connect#mapstatetoprops-state-ownprops--object
+ */
+
+const mapStateToProps = state => {
+  return { currentUser: state.user.currentUser }
+}
+
+export default connect(mapStateToProps)(Header)
