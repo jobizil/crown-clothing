@@ -7,5 +7,5 @@
     "**/.DS_Store": true,
     "**/node_modules": true
   },
-  "editor.fontFamily": "Fira Code iScript, Fira Code,cascadia code,Operator Mono Lig"
+  "editor.fontFamily": "Operator Mono Lig,Fira Code iScript, Fira Code,cascadia code"
 }
