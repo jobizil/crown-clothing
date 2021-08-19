@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { FaTimes, FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import { FaTimes } from 'react-icons/fa'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import {
   clearCartItem,
