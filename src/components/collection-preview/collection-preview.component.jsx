@@ -1,3 +1,7 @@
+/*
+ * This renders all the colletion of items in the collection preview compob=nent which is then linked to the shop page
+ */
+
 import './collection-preview.styles.scss'
 
 import CollectionItem from '../collection-item/collection-item.component'
