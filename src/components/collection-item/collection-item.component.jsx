@@ -1,7 +1,11 @@
-import './collection-item.styles.scss'
+/*
+ * This component displays all the items in the collectio preview component.
+ */
+
 import { connect } from 'react-redux'
 import { addItem } from '../../redux/cart/cart.action'
 import CustomButton from '../custom-button/custom-button.component'
+import './collection-item.styles.scss'
 
 const CollectionItem = ({ item, addItem }) => {
   const { name, imageUrl, price } = item
