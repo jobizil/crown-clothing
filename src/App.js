@@ -8,7 +8,7 @@ import Header from './components/header/header.component'
 
 // Pages
 import HomePage from './pages/homepage/home-page'
-import ShopPage from './pages/shop/shop-page'
+import ShopPage from './pages/shop/shop.component.jsx'
 import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up-page'
 import CheckoutPage from './pages/checkout/checkout.component'
 
